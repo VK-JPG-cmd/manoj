@@ -551,7 +551,7 @@ function handlePasswordSubmit(event) {
     if (!passInput) return;
 
     const val = passInput.value.trim().toLowerCase();
-    const validPasswords = ['2109', '21', '21092026', '21/09', '21-09', 'yedi', 'manooj', 'kitkat', 'love'];
+    const validPasswords = ['2104','manoojyedi',];
 
     if (validPasswords.includes(val)) {
         if (errorMsg) errorMsg.textContent = "";
