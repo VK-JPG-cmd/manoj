@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>❤️ Happy Birthday — My Love ❤️</title>
+    <meta name="description" content="A special romantic birthday surprise message">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Cupid Arrow & Password Intro Overlay -->
+    <!-- Cupid Arrow & Password Intro Overlay -->
+    <div id="cupidIntroOverlay" class="cupid-intro-overlay">
+        <!-- Canvas Starfield -->
+        <canvas id="cupidStarCanvas" class="cupid-star-canvas"></canvas>
+
+        <!-- Sky Background Atmosphere -->
+        <div class="sky-background">
+            <div class="cloud cloud-1">☁️</div>
+            <div class="cloud cloud-2">☁️</div>
+            <div class="cloud cloud-3">☁️</div>
+            <div class="intro-bg-particles" id="introBgParticles"></div>
+        </div>
+
+        <!-- Fast Skip Button -->
+        <button class="btn-skip-intro" onclick="skipToPasswordStage()" title="Skip to password screen">
+            ⚡ Skip Intro
+        </button>
+
+        <!-- Stage 1: Cinematic Animated Cupid Shooting Scene -->
+        <div id="cupidAnimationStage" class="cupid-animation-stage">
+            
+            <!-- Cupid Flying Character -->
+            <div class="cupid-hero" id="cupidHero">
+                <div class="cupid-cloud-pedestal">☁️</div>
+                <svg class="cupid-svg" viewBox="0 0 160 180" width="160" height="180">
+                    <defs>
+                        <radialGradient id="haloGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#fff7a1" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#ffd700" stop-opacity="0"/>
+                        </radialGradient>
+                        <linearGradient id="bowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffe600"/>
+                            <stop offset="50%" stop-color="#ff0054"/>
+                            <stop offset="100%" stop-color="#ff8800"/>
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Halo -->
+                    <ellipse cx="80" cy="20" rx="36" ry="9" fill="none" stroke="#ffd700" stroke-width="4.5" filter="drop-shadow(0 0 10px #ffe600)"/>
+                    
+                    <!-- Flapping Wings -->
+                    <g class="svg-wing wing-left">
+                        <path d="M 65 65 C 25 15, -5 50, 18 88 C 35 112, 60 90, 65 75 Z" fill="#ffffff" opacity="0.95" stroke="#ffb6c1" stroke-width="2.5"/>
+                        <path d="M 60 70 C 35 35, 10 60, 28 85 Z" fill="#fff0f5" opacity="0.8"/>
+                    </g>
+                    <g class="svg-wing wing-right">
+                        <path d="M 95 65 C 135 15, 165 50, 142 88 C 125 112, 100 90, 95 75 Z" fill="#ffffff" opacity="0.95" stroke="#ffb6c1" stroke-width="2.5"/>
+                        <path d="M 100 70 C 125 35, 150 60, 132 85 Z" fill="#fff0f5" opacity="0.8"/>
+                    </g>
+
+                    <!-- Body & Cute Head -->
+                    <circle cx="80" cy="55" r="24" fill="#ffe0bd"/>
+                    <!-- Blonde Curly Hair -->
+                    <path d="M 58 48 C 62 26, 98 26, 102 48 C 94 36, 66 36, 58 48 Z" fill="#ffb703"/>
+                    <circle cx="68" cy="38" r="6" fill="#ffb703"/>
+                    <circle cx="92" cy="38" r="6" fill="#ffb703"/>
+                    <!-- Face Details -->
+                    <circle cx="72" cy="54" r="3.5" fill="#3a1c14"/>
+                    <circle cx="88" cy="54" r="3.5" fill="#3a1c14"/>
+                    <circle cx="73" cy="52" r="1" fill="#ffffff"/>
+                    <circle cx="89" cy="52" r="1" fill="#ffffff"/>
+                    <path d="M 73 64 Q 80 72 87 64" fill="none" stroke="#e63946" stroke-width="2.8" stroke-linecap="round"/>
+                    <circle cx="66" cy="60" r="4.5" fill="#ffb6c1" opacity="0.75"/>
+                    <circle cx="94" cy="60" r="4.5" fill="#ffb6c1" opacity="0.75"/>
+
+                    <!-- Toga Body & Sash -->
+                    <path d="M 62 76 C 55 120, 105 120, 98 76 Z" fill="#ffffff" stroke="#ffccd5" stroke-width="2"/>
+                    <path d="M 62 82 Q 80 94 98 82" fill="none" stroke="#ff4d6d" stroke-width="3.5"/>
+
+                    <!-- Golden Cupid Bow -->
+                    <g class="svg-bow" id="svgBow">
+                        <path d="M 110 35 Q 150 80 110 125" fill="none" stroke="url(#bowGrad)" stroke-width="6" stroke-linecap="round" filter="drop-shadow(0 0 8px #ffa200)"/>
+                        <path id="bowString" d="M 110 35 L 110 125" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Arrow Flight Arena -->
+            <div class="arrow-arena" id="arrowArena">
+                <div class="flying-arrow-svg" id="flyingArrowSvg">
+                    <svg viewBox="0 0 130 36" width="130" height="36">
+                        <defs>
+                            <linearGradient id="arrowTrailGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#ff0054" stop-opacity="0"/>
+                                <stop offset="60%" stop-color="#ff4d6d" stop-opacity="0.8"/>
+                                <stop offset="100%" stop-color="#ffd700" stop-opacity="1"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Glowing Motion Trail -->
+                        <path d="M 0 18 L 95 18" stroke="url(#arrowTrailGrad)" stroke-width="6" stroke-linecap="round"/>
+                        <!-- Shaft -->
+                        <line x1="12" y1="18" x2="102" y2="18" stroke="#ffd700" stroke-width="3.5" stroke-linecap="round"/>
+                        <!-- Golden Feathers -->
+                        <path d="M 16 18 L 4 8 M 16 18 L 4 28 M 24 18 L 12 8 M 24 18 L 12 28" stroke="#ff4d6d" stroke-width="3" stroke-linecap="round"/>
+                        <!-- Glowing Heart Arrowhead -->
+                        <path d="M 100 18 L 110 7 C 118 1, 128 12, 117 18 C 128 24, 118 35, 110 29 Z" fill="#ff0054" stroke="#ffe600" stroke-width="1.5" filter="drop-shadow(0 0 10px #ff0054)"/>
+                    </svg>
+                    <div class="arrow-sparkles">✨</div>
+                </div>
+            </div>
+
+            <!-- Target: Boy Card (Manooj) -->
+            <div class="target-boy-hero" id="targetBoyHero">
+                <div class="target-glow-aura"></div>
+                <div class="shockwave-ring" id="shockwaveRing"></div>
+                <div class="shockwave-ring ring-2" id="shockwaveRing2"></div>
+                <div class="target-portrait-container">
+                    <img src="images/Manooj.jpeg" alt="Manooj" class="target-boy-img">
+                    <div class="target-heart-lock" id="targetHeartLock">
+                        <span class="heart-emoji">💖</span>
+                    </div>
+                </div>
+                <div class="target-boy-badge">Manooj ❤️</div>
+            </div>
+
+            <!-- Animated Status Banner -->
+            <div class="intro-status-banner" id="introStatusBanner">
+                <span class="status-icon" id="statusIcon">🏹</span>
+                <span class="status-text" id="statusTextContent">Cupid is taking aim at Manooj's heart...</span>
+            </div>
+        </div>
+
+        <!-- Stage 2: Secret Password Lock Screen -->
+        <div id="passwordStage" class="password-stage">
+            <div class="lock-card">
+                <div class="lock-header">
+                    <div class="heart-key-icon" id="heartKeyIcon">🔐</div>
+                    <h2>Unlock My Heart</h2>
+                    <p class="lock-subtitle">Cupid's arrow struck Manooj's heart! Enter the secret code to reveal your birthday surprise.</p>
+                </div>
+
+                <form id="passwordForm" onsubmit="handlePasswordSubmit(event)">
+                    <div class="input-wrapper">
+                        <input type="password" id="lovePasscode" placeholder="Enter password" autocomplete="off">
+                        <button type="button" class="btn-toggle-pass" onclick="togglePassVisibility()" id="btnTogglePass" title="Show/Hide">👁️</button>
+                    </div>
+                    <div id="passErrorMsg" class="pass-error-msg"></div>
+                    <button type="submit" class="btn-unlock">Unlock Surprise ❤️</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Birthday Container -->
+    <div class="birthday-container">
+
+        <!-- Replay Cupid Intro Button -->
+        <button class="btn-replay-cupid" onclick="playCupidIntro()" title="Replay Cupid Intro">💘 Cupid Intro</button>
+
+        <!-- Flower Decoration -->
+        <div class="web web1">🌸</div>
+        <div class="web web2">🌹</div>
+
+        <!-- Main Heading -->
+        <h1 class="birthday-title">❤️ HAPPY BIRTHDAY ❤️</h1>
+
+        <h2>To My YEDI❤️</h2>
+
+        <!-- Entrance Photo / Message -->
+        <div class="entrance-image-container">
+            <div class="entrance-message">
+                <p><strong>September 21</strong> is a day I will never forget — because it is the day the most amazing person came into this world. 🥰</p>
+                <p>You make every day brighter just by being you. I love your smile, your heart, and everything about you. 💕</p>
+                <p>On your birthday, I just want to say — <strong>I am so lucky to have you.</strong></p>
+                <p class="entrance-signoff">Happy Birthday, my love. 🎂 🌹</p>
+            </div>
+        </div>
+
+        <!-- Birthday Message -->
+        <div class="message">
+            <p>
+                You are the most beautiful part of my life. ❤️
+            </p>
+
+            <p>
+                May your birthday be filled with happiness,
+                love, smiles and unforgettable moments. 🎂✨
+            </p>
+
+            <p>
+                <strong>Happy Birthday, My Love! ❤️🥰</strong>
+            </p>
+        </div>
+
+        <!-- Interactive Question -->
+        <div class="question-section" id="questionSection">
+            <!-- <h3 class="question-text">Are you ready for your surprise? 🕸️</h3> -->
+            <div class="buttons-container">
+                <button class="btn-yes" onclick="showSurprise()">YES ❤️</button>
+                <button class="btn-no" id="btnNo">NO 😒</button>
+            </div>
+        </div>
+
+        <!-- Hidden Surprise Message -->
+        <div id="surprise" class="surprise-message">
+            <h2>❤️ You Are My Favourite Person ❤️</h2>
+
+            <p>
+                Every moment with you is special.
+                I hope this birthday brings you
+                everything your heart wishes for. 💕
+            </p>
+
+            <p>
+                Forever and Always ❤️
+            </p>
+            
+            <a href="memories.html" class="btn-next">Next Page ❤️</a>
+        </div>
+
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+
+</body>
+</html>
