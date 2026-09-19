@@ -939,23 +939,34 @@ body.seasons-theme {
 
 .timeline-content {
     flex: 1;
-    background: rgba(255, 250, 240, 0.7);
+    background: linear-gradient(135deg, rgba(255, 192, 203, 0.88), rgba(244, 143, 177, 0.8));
+    border: 2px solid rgba(213, 52, 71, 0.5);
+    border-left: 6px solid var(--red-deep);
     padding: 2rem;
-    border-radius: 15px;
-    border-left: 5px solid var(--red);
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(194, 30, 86, 0.22);
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(194, 30, 86, 0.35);
 }
 
 .month-title {
     font-family: 'Bangers', cursive;
-    font-size: 1.8rem;
-    color: var(--red);
+    font-size: 1.9rem;
+    color: var(--red-deep);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
     margin-bottom: 0.5rem;
 }
 
 .sweet-words {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--ink);
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.75;
+    color: #3b0918;
 }
 
 @media (max-width: 768px) {
